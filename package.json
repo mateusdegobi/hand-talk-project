@@ -12,17 +12,22 @@
   "dependencies": {
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
+    "@react-three/fiber": "^8.15.19",
     "expo": "~50.0.14",
+    "expo-gl": "^13.6.0",
     "expo-status-bar": "~1.11.1",
+    "expo-three": "^7.0.0",
     "react": "18.2.0",
     "react-native": "0.73.6",
     "react-native-safe-area-context": "4.8.2",
     "react-native-screens": "~3.29.0",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "three": "^0.162.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/react": "~18.2.45",
+    "@types/three": "^0.162.0",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "babel-plugin-root-import": "^6.6.0",
     "eslint": "^8.0.1",

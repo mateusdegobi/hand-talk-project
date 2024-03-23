@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
-import PublicNavigator from './Public';
+import React from 'react';
+
 import AuthenticatedNavigator from './Authenticated';
+import PublicNavigator from './Public';
 
 function Routes() {
-  const auth = true;
+  const auth = false;
 
   return auth ? <AuthenticatedNavigator /> : <PublicNavigator />;
 }

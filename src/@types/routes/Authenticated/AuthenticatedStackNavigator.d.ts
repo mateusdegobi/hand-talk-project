@@ -9,6 +9,6 @@ declare global {
   export type AuthenticatedStackNavigatorProps = NativeStackNavigationProp<
     AuthenticatedStackParamsList,
     'Render',
-    'Settings',
+    'Settings'
   >;
 }

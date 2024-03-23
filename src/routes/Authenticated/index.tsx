@@ -4,13 +4,13 @@ import React from 'react';
 
 const Stack = createNativeStackNavigator<AuthenticatedStackParamsList>();
 
-const AuthenticatedNavigator = () => {
+function AuthenticatedNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Render">
       <Stack.Screen name="Render" component={RenderScreen} />
       <Stack.Screen name="Settings" component={SettingsScreen} />
     </Stack.Navigator>
   );
-};
+}
 
 export default AuthenticatedNavigator;

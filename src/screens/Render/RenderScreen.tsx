@@ -1,6 +1,7 @@
+import { Box, Cone, Dodecahedron } from '@src/components/GeometricFigures';
 import React from 'react';
+
 import { CanvasView, Container } from './styles';
-import { Box, Cone, Dodecahedron } from '@src/components/GeometricFigure/';
 
 export default function RenderScreen() {
   return (

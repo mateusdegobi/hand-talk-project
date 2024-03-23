@@ -1,1 +1,1 @@
-export {default as RenderScreen} from './RenderScreen';
+export * from './RenderScreen';

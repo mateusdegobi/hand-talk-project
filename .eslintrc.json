@@ -1,5 +1,15 @@
 {
-  "extends": ["airbnb", "plugin:react-hooks/recommended", "prettier"],
+  "extends": ["airbnb", "plugin:react-hooks/recommended", "eslint-config-prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["@src"],
+        "moduleDirectory": ["@src", "node_modules"],
+        "extensions": [".ts", ".tsx", ".js", ".jsx", ".json"]
+      }
+    },
+    "babel-module": {}
+  },
   "env": {
     "browser": true,
     "es2021": true,
@@ -13,7 +23,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "eslint-plugin-prettier"],
   "rules": {
     "prettier/prettier": "error",
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
@@ -21,14 +31,7 @@
     "react/jsx-props-no-spreading": "off",
     "no-empty": ["error", { "allowEmptyCatch": true }],
     "react/jsx-no-bind": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
+    "import/extensions": "off",
     "import/order": [
       "error",
       {
@@ -50,6 +53,8 @@
           "match": true
         }
       }
-    ]
+    ],
+    "import/prefer-default-export": "off",
+    "react/require-default-props": "off"
   }
 }

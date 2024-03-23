@@ -3,7 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "types": ["react-native"],
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@src/*": ["src/*"],
       "@assets/*": ["src/assets/*"],

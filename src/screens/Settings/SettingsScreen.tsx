@@ -1,15 +1,13 @@
 import { useNavigation } from '@react-navigation/native';
-import { Canvas } from '@react-three/fiber';
 import Button from '@src/components/Button/Button';
 import Container from '@src/components/Container/Container';
-import { Cube, Cone, Dodecahedron, GeometricFigure } from '@src/components/GeometricFigures';
-import InputWithLabel from '@src/components/Input/InputWithLabel/InputWithLabel';
 import { useObjectsContext } from '@src/contexts/ObjectsContext';
 import { ObjectsType } from '@src/core/domain/entities/GeometricObject';
 import React, { useState } from 'react';
 
-import { InputArea, Row, ScrollView } from './styles';
+import { ScrollView } from './styles';
 import { ObjectKey } from './types';
+import GeometricObjectSettings from './components/EditableGeometricFigure';
 
 export default function SettingsScreen() {
   const { goBack } = useNavigation();
@@ -40,25 +38,7 @@ export default function SettingsScreen() {
     <Container>
       <ScrollView showsVerticalScrollIndicator={false}>
         {Object.entries(objects || {}).map(([name, object]) => (
-          <Row>
-            <Canvas>
-              <ambientLight intensity={1} />
-              <directionalLight position={[10, 10, 10]} intensity={1.5} />
-
-              <GeometricFigure color={object.color} position={[0, +1.5, 0]} shape={object.shape} />
-            </Canvas>
-
-            <InputArea>
-              <InputWithLabel textLabel="Rotação" />
-              <InputWithLabel
-                textLabel="Cor"
-                onChangeText={(color) => {
-                  handleEditObject(name as ObjectKey, object, color);
-                }}
-              />
-              <InputWithLabel textLabel="Tipo" />
-            </InputArea>
-          </Row>
+          <GeometricObjectSettings name={name} object={object} editObject={handleEditObject} />
         ))}
       </ScrollView>
 

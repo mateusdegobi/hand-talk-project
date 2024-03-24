@@ -1,6 +1,5 @@
 import { auth } from '@src/auth/firebase_auth';
-import { SignIn } from '@src/core/data/usecases/signIn.usecase';
-import { SignOut } from '@src/core/data/usecases/signOut.usecase';
+import { SignIn, SignOut } from '@src/core/data/usecases/auth';
 import { AuthFirebaseRepository } from '@src/core/infra/repository/firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useCallback, useEffect, useRef, useState } from 'react';

@@ -20,7 +20,7 @@ export default function ExitConfirmationModal() {
       <Button type="primary" onPress={hide}>
         Não, continuar
       </Button>
-      <Button type="secondary" color="red" onPress={handleSignOut} style={{ marginTop: 12 }}>
+      <Button type="tertiary" color="red" onPress={handleSignOut} style={{ marginTop: 12 }}>
         Sair
       </Button>
     </Container>

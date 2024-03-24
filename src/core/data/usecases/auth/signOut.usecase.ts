@@ -1,4 +1,4 @@
-import { AuthContract } from '../contracts/auth.contract';
+import { AuthContract } from '../../contracts/auth.contract';
 
 export class SignOut {
   constructor(private readonly repo: AuthContract) {}

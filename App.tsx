@@ -1,4 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
+import ModalPopUpComponent from '@src/components/ModalPopUp/ModalPopUp';
 import useAppearance from '@src/hooks/useAppearance';
 import Routes from '@src/routes';
 import { StatusBar } from 'expo-status-bar';
@@ -14,6 +15,8 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <StatusBar style="auto" backgroundColor={theme.colors.primary} translucent />
         <Routes />
+
+        <ModalPopUpComponent />
       </ThemeProvider>
     </NavigationContainer>
   );

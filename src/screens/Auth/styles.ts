@@ -6,3 +6,7 @@ export const HandTalkLogo = styled.Image`
   margin-bottom: 20px;
   align-self: center;
 `;
+
+export const ButtonsArea = styled.View`
+  margin-top: 20px;
+`;

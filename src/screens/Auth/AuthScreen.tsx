@@ -1,13 +1,13 @@
 import HandTalkLogoImage from '@assets/handtalk-logo/handtalk-logo.png';
-import { auth } from '@src/auth/firebase_auth';
+import Button from '@src/components/Button/Button';
 import Container from '@src/components/Container/Container';
 import TextInputWithLabel from '@src/components/Input/InputWithLabel/InputWithLabel';
-import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useRef } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { Button, TextInput } from 'react-native';
+import { Controller } from 'react-hook-form';
+import { ActivityIndicator, TextInput } from 'react-native';
 
-import { HandTalkLogo } from './styles';
+import { useSignin } from './hooks';
+import { ButtonsArea, HandTalkLogo } from './styles';
 
 export default function AuthScreen() {
   const inputEmailRef = useRef<TextInput>(null);
@@ -15,26 +15,7 @@ export default function AuthScreen() {
 
   const focusPassword = () => passwordRef.current?.focus();
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-  });
-
-  const onSubmit = async () => {
-    await handleSubmit(async ({ email, password }) => {
-      try {
-        await signInWithEmailAndPassword(auth, email, password);
-      } catch (error) {
-        console.log(errors);
-      }
-    })();
-  };
+  const { loadingSignIn, control, onSubmit } = useSignin();
 
   return (
     <Container>
@@ -72,7 +53,11 @@ export default function AuthScreen() {
         )}
       />
 
-      <Button title="Entrar" color="orange" onPress={onSubmit} />
+      <ButtonsArea>
+        <Button onPress={onSubmit}>
+          {loadingSignIn ? <ActivityIndicator color="white" /> : 'Entrar'}
+        </Button>
+      </ButtonsArea>
     </Container>
   );
 }

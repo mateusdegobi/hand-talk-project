@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { RenderScreen, SettingsScreen } from '@src/screens';
+import RenderScreen from '@src/screens/Render/RenderScreen';
+import SettingsScreen from '@src/screens/Settings/SettingsScreen';
 import React from 'react';
 
 const Stack = createNativeStackNavigator<AuthenticatedStackParamsList>();

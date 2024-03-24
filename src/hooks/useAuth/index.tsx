@@ -1,7 +1,7 @@
 import { auth } from '@src/auth/firebase_auth';
 import { SignIn, SignOut } from '@src/core/data/usecases/auth';
 import { AuthFirebaseRepository } from '@src/core/infra/repository/firebase/auth';
-import { onAuthStateChanged } from 'firebase/auth';
+import { User, onAuthStateChanged } from 'firebase/auth';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 const factory = (repo: AuthFirebaseRepository) => {
@@ -11,12 +11,14 @@ const factory = (repo: AuthFirebaseRepository) => {
   return { signIn, signOut };
 };
 
-export default function useAuth() {
+export function useAuth() {
   const [isAuth, setIsAuth] = useState(false);
+  const [user, setUser] = useState<User>();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
+    onAuthStateChanged(auth, (userState) => {
+      if (userState) {
+        setUser(userState);
         return setIsAuth(true);
       }
       setIsAuth(false);
@@ -47,5 +49,5 @@ export default function useAuth() {
     }
   }, [repo]);
 
-  return { isAuth, onSignIn, onSignOut };
+  return { isAuth, user, onSignIn, onSignOut };
 }

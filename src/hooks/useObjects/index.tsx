@@ -11,7 +11,7 @@ const factory = (repo: ObjectsRepository) => {
   return { getObjects, editObject };
 };
 
-export default function useObjects() {
+export function useObjects() {
   const [objects, setObjects] = useState<ObjectsType>();
 
   const repo = useRef(new ObjectsRepository()).current;

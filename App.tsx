@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import ModalPopUpComponent from '@src/components/ModalPopUp/ModalPopUp';
 import { ObjectsProvider } from '@src/contexts/ObjectsContext';
-import useAppearance from '@src/hooks/useAppearance';
+import { useAppearance } from '@src/hooks/';
 import Routes from '@src/routes';
 import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider } from 'styled-components/native';

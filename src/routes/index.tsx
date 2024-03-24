@@ -1,4 +1,4 @@
-import useAuth from '@src/hooks/useAuth';
+import { useAuth } from '@src/hooks/';
 import React from 'react';
 
 import AuthenticatedNavigator from './Authenticated';

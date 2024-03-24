@@ -1,6 +1,6 @@
 import Button from '@src/components/Button/Button';
 import { modalPopUpControllers } from '@src/components/ModalPopUp/ModalPopUp';
-import useAuth from '@src/hooks/useAuth';
+import { useAuth } from '@src/hooks/';
 import React from 'react';
 
 import { Container } from './styles';

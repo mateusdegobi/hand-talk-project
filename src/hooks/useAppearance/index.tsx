@@ -5,7 +5,7 @@ import { Appearance } from 'react-native';
 
 import { IAppearanceProps, IColorSchemeProps, themeType } from './types';
 
-const useAppearance = (): IAppearanceProps => {
+export function useAppearance(): IAppearanceProps {
   const [currentTheme, setCurrentTheme] = useState<themeType>(
     Appearance.getColorScheme() || 'light'
   );
@@ -28,6 +28,4 @@ const useAppearance = (): IAppearanceProps => {
     return darkLight;
   }, [currentTheme]);
   return { currentTheme, theme };
-};
-
-export default useAppearance;
+}

@@ -4,6 +4,8 @@ import Routes from '@src/routes';
 import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider } from 'styled-components/native';
 
+import '@src/auth/firebase_auth';
+
 export default function App() {
   const { theme } = useAppearance();
 

@@ -6,6 +6,7 @@ export class AuthFirebaseRepository implements AuthContract {
   async signIn(email: string, password: string): Promise<any> {
     await signInWithEmailAndPassword(auth, email, password);
   }
+
   async signOut(): Promise<any> {
     await signOutFB(auth);
   }

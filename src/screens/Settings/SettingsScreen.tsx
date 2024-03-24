@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Canvas } from '@react-three/fiber';
 import Button from '@src/components/Button/Button';
 import Container from '@src/components/Container/Container';
-import { Box, Cone, Dodecahedron } from '@src/components/GeometricFigures';
+import { Cube, Cone, Dodecahedron } from '@src/components/GeometricFigures';
 import InputWithLabel from '@src/components/Input/InputWithLabel/InputWithLabel';
 import { useObjectsContext } from '@src/contexts/ObjectsContext';
 import { ObjectsType } from '@src/core/domain/entities/GeometricObject';
@@ -34,7 +34,7 @@ export default function SettingsScreen() {
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={1.5} />
 
-            <Box color={objects?.object1.color} position={[0, +1.5, 0]} />
+            <Cube color={objects?.object1.color} position={[0, +1.5, 0]} />
           </Canvas>
           <InputArea>
             <InputWithLabel textLabel="Rotação" />
@@ -83,7 +83,10 @@ export default function SettingsScreen() {
         </Row>
       </ScrollView>
 
-      <Button type="primary" onPress={handleSave}>
+      <Button type="tertiary" onPress={goBack}>
+        Restaurar para padrão
+      </Button>
+      <Button type="primary" onPress={handleSave} style={{ marginTop: 10 }}>
         Salvar
       </Button>
     </Container>

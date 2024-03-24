@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import Button from '@src/components/Button/Button';
-import { Box } from '@src/components/GeometricFigures';
+import { Cube } from '@src/components/GeometricFigures';
 import InputWithLabel from '@src/components/Input/InputWithLabel/InputWithLabel';
 import { modalPopUpControllers } from '@src/components/ModalPopUp/ModalPopUp';
 import { useObjectsContext } from '@src/contexts/ObjectsContext';
@@ -37,7 +37,7 @@ export default function EditObjectModal({ object, objectValue }: ModalProps) {
         <Canvas>
           <ambientLight intensity={1} />
           <directionalLight position={[10, 10, 10]} intensity={1.5} />
-          <Box color={objectValue.color} position={objectValue.position} />
+          <Cube color={objectValue.color} position={objectValue.position} />
         </Canvas>
       </ObjectView>
       <Controller

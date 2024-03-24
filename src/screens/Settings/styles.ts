@@ -15,10 +15,3 @@ export const InputArea = styled.View`
 export const ScrollView = styled.ScrollView`
   flex: 1;
 `;
-
-export const Title = styled.Text`
-  margin: 10px 0px;
-  font-size: 26px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.colors.primary};
-`;

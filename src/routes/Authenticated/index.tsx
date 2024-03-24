@@ -9,7 +9,11 @@ function AuthenticatedNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Render">
       <Stack.Screen name="Render" component={RenderScreen} />
-      <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen
+        name="Settings"
+        options={{ headerShown: true, title: 'Configurações' }}
+        component={SettingsScreen}
+      />
     </Stack.Navigator>
   );
 }

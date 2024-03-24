@@ -8,7 +8,7 @@ import { useObjectsContext } from '@src/contexts/ObjectsContext';
 import { ObjectsType } from '@src/core/domain/entities/GeometricObject';
 import React, { useState } from 'react';
 
-import { InputArea, Row, ScrollView, Title } from './styles';
+import { InputArea, Row, ScrollView } from './styles';
 
 export default function SettingsScreen() {
   const { goBack } = useNavigation();
@@ -26,8 +26,6 @@ export default function SettingsScreen() {
 
   return (
     <Container>
-      <Title>Configurações</Title>
-
       <ScrollView showsVerticalScrollIndicator={false}>
         <Row>
           <Canvas>

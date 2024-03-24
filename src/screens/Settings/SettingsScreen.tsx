@@ -45,13 +45,9 @@ export default function SettingsScreen() {
               <ambientLight intensity={1} />
               <directionalLight position={[10, 10, 10]} intensity={1.5} />
 
-              <GeometricFigure
-                color={object.color}
-                position={[0, 0, 0]}
-                shape={object.shape}
-                rotation={object.rotation}
-              />
+              <GeometricFigure color={object.color} position={[0, +1.5, 0]} shape={object.shape} />
             </Canvas>
+
             <InputArea>
               <InputWithLabel textLabel="Rotação" />
               <InputWithLabel

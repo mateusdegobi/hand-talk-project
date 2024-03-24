@@ -1,13 +1,13 @@
-import { useFrame } from "@react-three/fiber";
-import type { MeshProps } from "@react-three/fiber";
-import React, { useRef } from "react";
-import type { BufferGeometry, Material, Mesh } from "three";
+import { useFrame } from '@react-three/fiber';
+import type { MeshProps } from '@react-three/fiber';
+import React, { useRef } from 'react';
+import type { BufferGeometry, Material, Mesh } from 'three';
 
 type Props = {
   color: string;
 } & MeshProps;
 
-export function Box({ color, ...rest }: Props) {
+export function Cube({ color, ...rest }: Props) {
   const mesh = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
 
   useFrame((state, delta) => {
@@ -23,5 +23,3 @@ export function Box({ color, ...rest }: Props) {
     </mesh>
   );
 }
-
-

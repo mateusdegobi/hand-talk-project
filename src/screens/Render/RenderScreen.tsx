@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import Button from '@src/components/Button/Button';
 import Container from '@src/components/Container/Container';
-import { Box, Cone, Dodecahedron } from '@src/components/GeometricFigures';
+import { GeometricFigure } from '@src/components/GeometricFigures';
 import { modalPopUpControllers } from '@src/components/ModalPopUp/ModalPopUp';
 import { useObjectsContext } from '@src/contexts/ObjectsContext';
 import React, { useCallback } from 'react';
@@ -45,16 +45,15 @@ export default function RenderScreen() {
             });
           };
 
-          if (value.shape === 'cube')
-            return <Box color={value.color} position={value.position} onClick={openModal} />;
-
-          if (value.shape === 'cone')
-            return <Cone color={value.color} position={value.position} onClick={openModal} />;
-
-          if (value.shape === 'dodecahedron')
-            return (
-              <Dodecahedron color={value.color} position={value.position} onClick={openModal} />
-            );
+          return (
+            <GeometricFigure
+              key={key}
+              shape={value.shape}
+              color={value.color}
+              position={value.position}
+              onClick={openModal}
+            />
+          );
         })}
       </CanvasView>
 

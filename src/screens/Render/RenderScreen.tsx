@@ -2,23 +2,30 @@ import { useNavigation } from '@react-navigation/native';
 import Button from '@src/components/Button/Button';
 import Container from '@src/components/Container/Container';
 import { Box, Cone, Dodecahedron } from '@src/components/GeometricFigures';
-import useAuth from '@src/hooks/useAuth';
-import React from 'react';
+import { modalPopUpControllers } from '@src/components/ModalPopUp/ModalPopUp';
+import React, { useCallback } from 'react';
 
+import ExitConfirmationModal from './components/ExitConfirmationModal';
 import { CanvasView, Header } from './styles';
 
 export default function RenderScreen() {
-  const { onSignOut } = useAuth();
   const { navigate } = useNavigation();
 
   const goToSettings = () => {
     navigate('Settings');
   };
 
+  const handleExit = useCallback(() => {
+    modalPopUpControllers.show({
+      component: <ExitConfirmationModal />,
+      title: 'Deseja realmente sair?',
+    });
+  }, []);
+
   return (
     <Container style={{ backgroundColor: 'black' }}>
       <Header>
-        <Button type="tertiary" onPress={onSignOut}>
+        <Button type="tertiary" onPress={handleExit}>
           Sair
         </Button>
       </Header>

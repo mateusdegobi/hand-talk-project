@@ -54,6 +54,7 @@
     "no-useless-constructor": "off",
     "no-empty-function": "off",
     "no-restricted-syntax": "off",
-    "no-await-in-loop": "off"
+    "no-await-in-loop": "off",
+    "react/style-prop-object": "off"
   }
 }

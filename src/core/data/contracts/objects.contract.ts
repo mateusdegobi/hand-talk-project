@@ -1,6 +1,9 @@
 import { GeometricObject, ObjectsType } from '@src/core/domain/entities/GeometricObject';
 
+import { GeometricObjectUserData } from './user-objects-config.contract';
+
 export interface ObjectsContract {
-  getObjects(): Promise<ObjectsType>;
-  editObject(keyObject: string, data: Partial<GeometricObject>): Promise<any>;
+  getObjects(): ObjectsType;
+  editObject(keyObject: string, data: Partial<GeometricObject>): void;
+  editAllObjects(newObjects: GeometricObjectUserData): void;
 }

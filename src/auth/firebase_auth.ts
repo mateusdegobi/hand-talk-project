@@ -7,14 +7,17 @@ import { getDatabase } from 'firebase/database';
 let app: FirebaseApp;
 let auth: Auth;
 
-if (!getApps().length) {
+const hasInitializedApps = getApps().length;
+
+if (!hasInitializedApps) {
   try {
     app = initializeApp(firebaseConfig);
     auth = initializeAuth(app, {
       persistence: getReactNativePersistence(ReactNativeAsyncStorage),
     });
   } catch (error) {
-    console.log(error);
+    app = getApp();
+    auth = getAuth(app);
   }
 } else {
   app = getApp();

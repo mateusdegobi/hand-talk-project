@@ -1,8 +1,9 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "jsx": "react",
     "strict": true,
-    "types": ["react-native"],
+    "types": ["react-native", "reflect-metadata", "jest", "node"],
     "baseUrl": "./",
     "paths": {
       "@src/*": ["src/*"],
@@ -20,6 +21,9 @@
       "@theme/*": ["src/theme/*"],
       "@config/*": ["src/config/*"]
     },
-    "rootDirs": ["src"]
-  }
+    "rootDirs": ["src"],
+    "typeRoots": ["./types", "./node_modules/@types"]
+  },
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"]
 }

@@ -92,21 +92,7 @@ export default function ModalPopUpComponent() {
                   <FakeView />
                   <Title>{title}</Title>
 
-                  {config.lockBackButtonToNotClose ? (
-                    <View />
-                  ) : (
-                    <TouchableOpacity
-                      onPress={handleCloseModal}
-                      style={{
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        backgroundColor: '#ed725a28',
-                        padding: 5,
-                        borderRadius: 50,
-                      }}>
-                      {/* <IconImage iconType="CloseIcon" height={18} width={18} tintColor="#ed725a" /> */}
-                    </TouchableOpacity>
-                  )}
+                  {config.lockBackButtonToNotClose && <View />}
                 </Header>
               )}
               {component}

@@ -1,14 +1,16 @@
+import { GeometricObjectUserData } from '@src/core/data/contracts';
 import { EditObject, GetObjects } from '@src/core/data/usecases/objects/';
+import { EditAllObjects } from '@src/core/data/usecases/objects/edit-all-objects.usecase';
 import { GeometricObject, ObjectsType } from '@src/core/domain/entities/GeometricObject';
 import { ObjectsRepository } from '@src/core/infra/repository/objects';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-
 const factory = (repo: ObjectsRepository) => {
   const getObjects = new GetObjects(repo);
   const editObject = new EditObject(repo);
+  const editAllObjects = new EditAllObjects(repo);
 
-  return { getObjects, editObject };
+  return { getObjects, editObject, editAllObjects };
 };
 
 export function useObjects() {
@@ -39,5 +41,14 @@ export function useObjects() {
     [repo, onGetObjects]
   );
 
-  return { objects, onEditObject };
+  const onEditAllObjects = useCallback(
+    async (newObjects: GeometricObjectUserData) => {
+      const { editAllObjects } = factory(repo);
+      await editAllObjects.execute(newObjects);
+      await onGetObjects();
+    },
+    [onGetObjects, repo]
+  );
+
+  return { objects, onEditObject, onEditAllObjects };
 }

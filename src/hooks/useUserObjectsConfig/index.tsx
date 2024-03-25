@@ -1,8 +1,8 @@
-import { GeometricObjectUserData } from '@src/core/data/contracts';
 import {
   SetUserObjectsConfig,
   GetUserObjectsConfig,
 } from '@src/core/data/usecases/userObjectsConfig';
+import { ObjectsType } from '@src/core/domain/entities/GeometricObject';
 import { UserObjectsConfigRepository } from '@src/core/infra/repository/firebase/user-objects-config.repository';
 import { useCallback, useRef } from 'react';
 
@@ -25,7 +25,7 @@ export function useUserObjectsConfig() {
   );
 
   const setConfig = useCallback(
-    async (userKey: string, config: GeometricObjectUserData) => {
+    async (userKey: string, config: ObjectsType) => {
       const { setConfigUsecase } = factory(repo);
       await setConfigUsecase.execute(userKey, config);
     },

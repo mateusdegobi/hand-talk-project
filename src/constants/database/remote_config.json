@@ -1,0 +1,17 @@
+{
+  "object1": {
+    "shape": "Cube",
+    "color": "red",
+    "rotation": 90
+  },
+  "object2": {
+    "shape": "Cone",
+    "color": "yellow",
+    "rotation": 45
+  },
+  "object3": {
+    "shape": "Dodecahedron",
+    "color": "yellow",
+    "rotation": 0
+  }
+}

@@ -1,10 +1,16 @@
 import { Canvas } from '@react-three/fiber';
 import Button from '@src/components/Button/Button';
-import { Cube } from '@src/components/GeometricFigures';
+import { GeometricFigure } from '@src/components/GeometricFigures';
 import InputWithLabel from '@src/components/Input/InputWithLabel/InputWithLabel';
 import { modalPopUpControllers } from '@src/components/ModalPopUp/ModalPopUp';
+import Switcher from '@src/components/Switcher';
 import { useObjectsContext } from '@src/contexts/ObjectsContext';
 import { GeometricObject } from '@src/core/domain/entities/GeometricObject';
+import {
+  parserObjectDataToShape,
+  parserObjectShapeToData,
+} from '@src/screens/Settings/components/EditableGeometricFigure/helper/parserObject';
+import { FloppyDisk } from 'phosphor-react-native';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
@@ -17,16 +23,28 @@ type ModalProps = {
 
 export default function EditObjectModal({ object, objectValue }: ModalProps) {
   const { control, handleSubmit } = useForm({
-    defaultValues: { color: objectValue.color, rotation: objectValue.rotation },
+    defaultValues: {
+      color: objectValue.color,
+      rotation: objectValue.rotation,
+      shape: objectValue.shape,
+    },
   });
 
-  const { onEditObject } = useObjectsContext();
+  const { onEditObject, setConfigObjects } = useObjectsContext();
 
   const { hide } = modalPopUpControllers;
 
   const handleSave = async () => {
-    await handleSubmit(async ({ color, rotation }) => {
-      await onEditObject(object, { color, rotation });
+    await handleSubmit(async ({ color, rotation, shape }) => {
+      await onEditObject(object, { color, rotation, shape });
+      await setConfigObjects({
+        [object]: {
+          ...objectValue,
+          color,
+          rotation,
+          shape,
+        },
+      });
       hide();
     })();
   };
@@ -37,7 +55,14 @@ export default function EditObjectModal({ object, objectValue }: ModalProps) {
         <Canvas>
           <ambientLight intensity={1} />
           <directionalLight position={[10, 10, 10]} intensity={1.5} />
-          <Cube color={objectValue.color} position={objectValue.position} />
+
+          <GeometricFigure
+            shape={objectValue.shape}
+            color={objectValue.color}
+            rotation={objectValue.rotation}
+            position={[0, 0, 0]}
+            scale={4}
+          />
         </Canvas>
       </ObjectView>
       <Controller
@@ -54,7 +79,20 @@ export default function EditObjectModal({ object, objectValue }: ModalProps) {
           <InputWithLabel textLabel="Rotação" onChangeText={onChange} value={value} />
         )}
       />
-      <Button type="primary" onPress={handleSave}>
+
+      <Controller
+        name="shape"
+        control={control}
+        render={({ field: { onChange, value } }) => (
+          <Switcher
+            data={['Cubo', 'Cone', 'Dodecaedro']}
+            onChangeValue={(shape) => onChange(parserObjectDataToShape(shape))}
+            value={parserObjectShapeToData(value || objectValue.shape)}
+          />
+        )}
+      />
+
+      <Button type="primary" onPress={handleSave} icon={FloppyDisk}>
         Salvar
       </Button>
     </Container>

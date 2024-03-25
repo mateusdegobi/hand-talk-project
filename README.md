@@ -3,6 +3,23 @@
 ## Apresentação
 
 <div align="center">
+    <img
+    width="400"
+    src="https://github.com/mateusdegobi/hand-talk-project/blob/develop/assets/github/ios1.jpeg?raw=true" 
+    alt="Login" />
+    <img
+    width="400"
+    src="https://github.com/mateusdegobi/hand-talk-project/blob/develop/assets/github/ios2.jpeg?raw=true" 
+    alt="Home" />
+    <img
+    width="400"
+    src="https://github.com/mateusdegobi/hand-talk-project/blob/develop/assets/github/ios3.jpeg?raw=true" 
+    alt="EditObjectModal" />
+    <img
+    width="400"
+    src="https://github.com/mateusdegobi/hand-talk-project/blob/develop/assets/github/ios4.jpeg?raw=true" 
+    alt="Settings" />
+  
 </div>
 
 ## Desafios do projeto

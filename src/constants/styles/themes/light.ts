@@ -6,6 +6,7 @@ export const themeLight: DefaultTheme = {
   colors: {
     primary: Colors.orangeMain,
     error: Colors.redError,
-    background: Colors.whiteBG,
+    background: Colors.white,
+    white: Colors.white,
   },
 };

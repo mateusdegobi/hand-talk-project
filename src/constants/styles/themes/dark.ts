@@ -5,7 +5,8 @@ import * as Colors from '../colors';
 export const darkLight: DefaultTheme = {
   colors: {
     primary: Colors.orangeMain,
+    white: Colors.white,
     error: Colors.redError,
-    background: Colors.whiteBG,
+    background: Colors.white,
   },
 };

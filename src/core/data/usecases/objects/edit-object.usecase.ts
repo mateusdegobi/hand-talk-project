@@ -1,6 +1,6 @@
 import { GeometricObject } from '@src/core/domain/entities/GeometricObject';
 
-import { ObjectsContract } from '../../contracts/objets.contract';
+import { ObjectsContract } from '../../contracts/objects.contract';
 
 export class EditObject {
   constructor(private readonly repo: ObjectsContract) {}

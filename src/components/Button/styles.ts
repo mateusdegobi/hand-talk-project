@@ -9,6 +9,9 @@ export const ButtonView = styled.TouchableOpacity<ButtonViewProps>`
   background-color: ${({ color, theme }) => color || theme.colors.primary};
   padding: 10px;
   border-radius: 10px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
   ${({ type, theme, color }) =>
     type === 'secondary' &&
@@ -33,6 +36,8 @@ export const Text = styled.Text<TextProps>`
   text-align: center;
   color: #fff;
   font-weight: 800;
+
+  margin-right: 5px;
 
   ${({ type, color, theme }) =>
     type === 'secondary' &&

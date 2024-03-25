@@ -2,6 +2,7 @@ import HandTalkLogoImage from '@assets/handtalk-logo/handtalk-logo.png';
 import Button from '@src/components/Button/Button';
 import Container from '@src/components/Container/Container';
 import TextInputWithLabel from '@src/components/Input/InputWithLabel/InputWithLabel';
+import { SignIn } from 'phosphor-react-native';
 import React, { useRef } from 'react';
 import { Controller } from 'react-hook-form';
 import { ActivityIndicator, TextInput } from 'react-native';
@@ -54,7 +55,7 @@ export default function AuthScreen() {
       />
 
       <ButtonsArea>
-        <Button onPress={onSubmit}>
+        <Button onPress={onSubmit} icon={SignIn}>
           {loadingSignIn ? <ActivityIndicator color="white" /> : 'Entrar'}
         </Button>
       </ButtonsArea>

@@ -14,8 +14,9 @@ export class GeometricObject {
   }
 }
 
+export type PartialGeometricObject = Partial<Omit<GeometricObject, 'position'>>;
 export type ObjectsType = {
-  object1: GeometricObject;
-  object2: GeometricObject;
-  object3: GeometricObject;
+  object1?: PartialGeometricObject;
+  object2?: PartialGeometricObject;
+  object3?: PartialGeometricObject;
 };

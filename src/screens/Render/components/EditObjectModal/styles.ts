@@ -6,5 +6,6 @@ export const Container = styled.View`
 
 export const ObjectView = styled.View`
   width: 200px;
-  height: 100px;
+  height: 150px;
+  align-self: center;
 `;

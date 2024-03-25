@@ -21,7 +21,7 @@ export function useAuth() {
         setUser(userState);
         return setIsAuth(true);
       }
-      setIsAuth(false);
+      return setIsAuth(false);
     });
   }, []);
 
